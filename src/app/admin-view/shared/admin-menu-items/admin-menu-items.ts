@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface Menu {
-  state: string;
+  state?: string;
   name: string;
   type: string;
   icon: string;
@@ -9,6 +9,17 @@ export interface Menu {
 
 const ADMINMENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
+  // { state: '/home', type: 'link', name: 'Home', icon: 'crop_7_5' },
+  { state: 'admin/home', type: 'link', name: 'Admin Home', icon: 'crop_7_5' },
+  {
+    name: 'admin',
+    type: 'link',
+    icon: 'crop_7_5',
+    children: [
+      { state: 'admin/home', name: 'Home' },
+      // { state: 'home/patients/add', name: 'Add Patient' }
+    ],
+  },
   { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },

@@ -13,9 +13,11 @@ import { AdminHeaderComponent } from './shared/admin-header/admin-header.compone
 import { AdminSidebarComponent } from './shared/admin-sidebar/admin-sidebar.component';
 import { AdminMenuItems } from './shared/admin-menu-items/admin-menu-items';
 import { SpinnerComponent } from '../shared/spinner.component';
-import { AppModule } from '../app.module';
+// import { AppModule } from '../app.module';
 import { RouterModule } from '@angular/router';
 import { AdminRoutingModule } from './admin-routing.module';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -31,6 +33,7 @@ import { AdminRoutingModule } from './admin-routing.module';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    CommonModule,
     RouterModule.forChild(AdminRoutingModule),
     // AngularMaterialModule,
     // AdminRoutingModule,
@@ -40,7 +43,7 @@ import { AdminRoutingModule } from './admin-routing.module';
     ReactiveFormsModule,
     // MatSelectModule,
     DemoMaterialModule,
-    AppModule
+    // AppModule
   ],
   exports: [
     // NumberDecimalsOnlyDirective, EnglishTextDirective, NumbersOnlyDirective, SpecialCharDirective, TrimDirective
