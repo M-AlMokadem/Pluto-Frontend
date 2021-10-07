@@ -1,0 +1,138 @@
+<p>login works!</p>
+
+
+
+<div id="login_bg" class="container-fluid">
+
+    <!-- <nav id="menu" class="fake_menu"></nav>
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div> -->
+    <!-- End Preload -->
+
+    <div id="login" class="row">
+        <aside class="col-md-4">
+            <figure>
+                <a href="index.html"><img src="assets/img/logo.png" width="120" height="100%" alt=""></a>
+            </figure>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <h2>Login</h2>
+
+                <div *ngIf="errorApi">
+                    <Strong style="color: red;">{{error.error.message}}</Strong>
+                </div>
+                <div class="form-group">
+                    <span class="input">
+                        <input class="input_field" type="email" autocomplete="off" name="email"
+                            formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                        <label class="input_label" for="username">
+                            <span class="input__label-content">User Name</span>
+                        </label>
+                    </span>
+
+                    <span class="input">
+                        <input class="input_field" type="password" autocomplete="new-password" name="password"
+                            formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                        <label for="password" class="input_label">
+                            <span class="input__label-content">Your password</span>
+                        </label>
+                    </span>
+                    <small><a href="#0" [routerLink]="" (click)="openSentMAilModal(mymodal)">Forgot
+                            password?</a></small>
+                    <ngx-recaptcha2 #captchaElem [siteKey]="sityKey" (success)="handleSuccess($event)"
+                        formControlName="recaptcha">
+                    </ngx-recaptcha2>
+
+
+                </div>
+                <div class="alert-danger">{{errorLogin}}</div>
+                <!-- <a href="#0" class="btn_1 rounded full-width add_top_60">Login to PLAN-B</a> -->
+                <button [disabled]="loading" class="btn_1 rounded full-width add_top_60">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login to PLAN-B
+                </button>
+
+                <div class="text-center add_top_10">New to PLAN-B? <strong><a [routerLink]="" (click)="SignUp()">Sign
+                            up!</a></strong>
+                </div>
+            </form>
+
+            <div class="copy">© 2017 PLAN-B</div>
+        </aside>
+        <div class="col-md-8 slider-image" style="padding-right: 0px;padding-left: 0px;">
+            <div id="carouselExampleSlidesOnly" class="carousel slide h-100" data-ride="carousel">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item active h-100">
+                        <img class="d-block w-100 h-100" src="assets/img/Login_Images/Business.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item h-100">
+                        <img class="d-block w-100 h-100" src="assets/img/Login_Images/Learn_Build_Lead.jpg"
+                            alt="First slide">
+                    </div>
+                    <div class="carousel-item h-100">
+                        <img class="d-block w-100 h-100" src="assets/img/Login_Images/learn_with_notebook.jpg"
+                            alt="First slide">
+                    </div>
+                    <div class="carousel-item h-100">
+                        <img class="d-block w-100 h-100" src="assets/img/Login_Images/Meeting_Lamp.jpg"
+                            alt="First slide">
+                    </div>
+                    <div class="carousel-item h-100">
+                        <img class="d-block w-100 h-100" src="assets/img/Login_Images/Never_Stop_Learn.jpg"
+                            alt="First slide">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">please write your mail to reset the password</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="resetMailRequestForm" (ngSubmit)="sendMAil(checkMailModal)">
+            <div class="form-group">
+                <span class="input">
+                    <input class="input_field" type="email" autocomplete="off" name="email" formControlName="email"
+                        [ngClass]="{ 'is-invalid': resetSubmit && fReset.email.errors }">
+                    <div *ngIf="resetSubmit && fReset.email.errors" class="invalid-feedback">
+                        <div *ngIf="fReset.email.errors.required">Your Email is required</div>
+                        <div *ngIf="fReset.email.errors?.pattern" class="text-danger">Please provide a valid email
+                            address</div>
+                    </div>
+                    <label class="input_label" for="email">
+                        <span class="input__label-content">Your Email</span>
+                    </label>
+                </span>
+
+                <div class="modal-footer">
+                    <button class="btn_1 rounded full-width add_top_60">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+
+
+
+<ng-template #checkMailModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">please write check your mail to reset the password</h4>
+    </div>
+</ng-template>

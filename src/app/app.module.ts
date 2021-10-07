@@ -16,6 +16,7 @@ import { DemoMaterialModule } from './shared/demo-material-module';
 import { SharedModule } from './shared/shared.module';
 // import { SpinnerComponent } from './shared/spinner.component';
 import { HomeComponent } from './userView/home/home.component';
+import { LoginComponent } from './Components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './userView/home/home.component';
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

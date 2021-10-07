@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   api: 'http://localhost:5001/',
   apiUrls: {
-    getAllItems: 'api/Items/GetAllItems'
+    getAllItems: 'api/Items/GetAllItems',
+    accountLogin: 'accounts/login'
   },
 };
 

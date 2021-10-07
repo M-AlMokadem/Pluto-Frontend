@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { HomeComponent } from './userView/home/home.component';
-
+import { LoginComponent } from './Components/auth/login/login.component';
 
 
 const routes: Routes = [
@@ -35,11 +35,17 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'login', component: LoginComponent,
+    // canActivate: [LoginGuard]
+  },
+  {
     path: 'admin',
     data: {
       // roles: [Role.Admin]
     },
-    loadChildren: () => import('../app/admin-view/admin.module').then((m) => m.AdminModule),
+    // loadChildren: () => import('../app/admin-view/admin.module').then((m) => m.AdminModule),
+    loadChildren: () => import('../app/Components/auth/auth.module').then((m) => m.AuthModule),
+
   },
 ];
 
