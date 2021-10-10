@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder
   ) {
-    // this.createForm();
+    this.createForm();
   }
 
   createForm() {
