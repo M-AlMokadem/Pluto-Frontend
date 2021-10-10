@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as jwt_decode from '../../../../node_modules/jwt-decode';
-import { RoleEnum, ConstEnum } from '../enums';
+import { RoleEnum } from 'src/app/core/enums/role.enum';
+import { ConstEnum } from 'src/app/core/enums/const.enum';
+
 
 @Injectable({
   providedIn: 'root'
