@@ -1,10 +1,35 @@
-<div fxLayout="row" fxLayoutAlign="Center stretch" style="background-color: orange;">
+<div fxLayout="row" fxLayoutAlign="Center stretch" fxFill style="background-color: orange;">
     <!-- <div fxLayout="column" fxFlex="100" fxFlex.xs="90" fxFlex.sm="80" fxFlex.md="95" fxFlex.lg="70" fxFlex.xl="60"
         style="background-color:peru">
         <p>column</p>
     </div> -->
     <div fxLayout="column" fxFlex="40%" style="background-color:plum">
-        lol
+        <mat-card>
+            <div fxLayout="column" fxLayoutAlign="center center" class="mrgn-b-lg text-center">
+                <h2>{{'Get Started With UT Pluto'}}</h2>
+                <!-- <p>The most powerful angular app</p> -->
+            </div>
+            <form autocomplete="off" [formGroup]="loginForm" fxLayoutAlign="center start">
+                <div fxLayout="column" fxFlex.xs="100" fxFlex.sm="80" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70"
+                    fxLayoutAlign="start">
+                    <mat-form-field appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input matInput placeholder="User Name" formControlName="name">
+                        <mat-icon matSuffix>verified_use</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" formControlName="password">
+                        <mat-icon matSuffix>vpn_key</mat-icon>
+                    </mat-form-field>
+                    <div class="mrgn-b-md">
+                        <mat-checkbox class="remember-me" formControlName="rememberMe">{{'Remember Me'}}
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+
     </div>
     <div fxLayout="column" fxFlex="60%" style="background-color:powderblue">
         <div class="col-md-8 slider-image" style="padding-right: 0px;padding-left: 0px;">
